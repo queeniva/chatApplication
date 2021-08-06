@@ -1,0 +1,24 @@
+{
+  "name": "chatpractice",
+  "version": "1.0.0",
+  "description": "a chat application using nodejs and socket.io",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Queeniva",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "socket.io": "^4.1.3"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/queeniva/chatApplication.git"
+  },
+  "bugs": {
+    "url": "https://github.com/queeniva/chatApplication/issues"
+  },
+  "homepage": "https://github.com/queeniva/chatApplication#readme"
+}
