@@ -1,26 +1,18 @@
-const express = require("express")
-const app = express()
-const http  = require("http")
-const server = http.createServer(app)
-const {server} = require("socket.io")
-const io = new server(server);
+const app = require('express')();
+const http = require('http').Server(app);
+const io = require('socket.io')(http);
+const port = process.env.PORT || 3000;
 
-const port = 3000
-
-
-
-
-app.get("/", function(req,res){
-    res.sendFile(__dirname+"/index.html")
+app.get('/', (req, res) => {
+  res.sendFile(__dirname + '/index.html');
 });
 
-io.on("connection", function(socket){
-console.log("a user is connected")
-})
+io.on('connection', (socket) => {
+  socket.on('chat message', msg => {
+    io.emit('chat message', msg);
+  });
+});
 
-
-
-
-app.listen(port, function(){
-    console.log("app running on port 3000")
+http.listen(port, () => {
+  console.log(`Socket.IO server running at http://localhost:${port}/`);
 });
